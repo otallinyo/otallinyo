@@ -1,100 +1,91 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Otallinyo | Reparación de Hormigón</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Otallinyo | Reparación de Hormigón</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
-  <style>
-    /* Hero: fondo responsive con parallax, gradiente y hover */
-    .hero {
-      position: relative;
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-image: url('fondo.jpg');
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      overflow: hidden;
-      transition: transform 0.5s ease;
-    }
-    .hero:hover { transform: scale(1.03); filter: brightness(1.05); }
+<style>
+/* Hero con fondo, parallax y partículas */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('fondo.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+.hero:hover { transform: scale(1.03); filter: brightness(1.05); }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(270deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  background-size: 600% 600%;
+  animation: gradientMove 15s ease infinite;
+  z-index:1;
+}
+@keyframes gradientMove { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
 
-    @media (min-width: 640px) { .hero { min-height: 70vh; } }
-    @media (min-width: 768px) { .hero { background-size: cover; min-height: 80vh; } }
-    @media (min-width: 1024px) { .hero { min-height: 100vh; } }
+.hero-content {
+  position: relative;
+  z-index:2;
+  text-align: center;
+  opacity:0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+.hero-content.show { opacity:1; transform: translateY(0); }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(270deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3), rgba(0,0,0,0.6));
-      background-size: 600% 600%;
-      animation: gradientMove 15s ease infinite;
-      z-index: 1;
-    }
+/* Botón flotante WhatsApp */
+.whatsapp-btn {
+  position: fixed; bottom:20px; right:20px;
+  background-color: #25D366; color:white;
+  border-radius:50%; width:60px; height:60px;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 6px rgba(0,0,0,0.3);
+  z-index:100; transition: transform 0.3s ease;
+}
+.whatsapp-btn:hover { transform: scale(1.1); }
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+/* Dark mode toggle */
+#darkToggle { position:fixed; top:20px; right:90px; z-index:100; cursor:pointer; background:#333;color:white;padding:0.5rem 1rem;border-radius:0.5rem; }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease;
-    }
-    .hero-content.show { opacity: 1; transform: translateY(0); }
+/* Micro-interacciones y tarjetas */
+.service-card:hover { transform: scale(1.05); transition: all 0.3s ease; }
 
-    /* Botón flotante WhatsApp */
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      z-index: 100;
-      transition: transform 0.3s ease;
-    }
-    .whatsapp-btn:hover { transform: scale(1.1); }
+/* Slider testimonios */
+.slider { position:relative; overflow:hidden; max-width:800px; margin:0 auto; }
+.slides { display:flex; transition: transform 0.5s ease-in-out; }
+.slide { min-width:100%; flex-shrink:0; padding:2rem; background:#f9f9f9; border-radius:0.5rem; box-shadow:0 4px 6px rgba(0,0,0,0.1); text-align:center; }
 
-    .service-card:hover { transform: scale(1.05); }
+/* Scroll smooth */
+html { scroll-behavior: smooth; }
 
-    /* Smooth scroll */
-    html { scroll-behavior: smooth; }
-
-    /* Slider testimonios */
-    .slider { position: relative; overflow: hidden; max-width: 800px; margin: 0 auto; }
-    .slides { display: flex; transition: transform 0.5s ease-in-out; }
-    .slide { min-width: 100%; flex-shrink: 0; padding: 2rem; background: #f9f9f9; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-  </style>
+/* Contadores animados */
+.counter { font-size:2rem; font-weight:bold; color:#1D4ED8; }
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 transition-colors duration-500">
+
+<!-- Dark mode toggle -->
+<div id="darkToggle">🌙</div>
 
 <!-- Header -->
-<header class="bg-gray-900 text-white shadow-md">
+<header class="bg-gray-900 text-white shadow-md transition-colors duration-500">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-6">
     <div class="flex items-center space-x-3 mb-4 md:mb-0">
       <img src="logo.png" alt="Otallinyo Logo" class="h-10 w-10 object-contain">
       <h1 class="text-2xl font-bold tracking-wide">Otallinyo</h1>
     </div>
-
     <nav class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 font-medium">
       <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
       <a href="#nosotros" class="hover:text-blue-400 transition">Nosotros</a>
@@ -107,16 +98,9 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-content p-6 md:p-10 max-w-2xl">
-    <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4">
-      Expertos en reparación de hormigón
-    </h2>
-    <p class="text-sm sm:text-base md:text-xl text-gray-200 mb-6">
-      Calidad, seguridad y soluciones duraderas.
-    </p>
-    <a href="#contacto" 
-       class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-blue-500 transition">
-      Solicitar presupuesto
-    </a>
+    <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4" id="typing">Expertos en reparación de hormigón</h2>
+    <p class="text-sm sm:text-base md:text-xl text-gray-200 mb-6">Calidad, seguridad y soluciones duraderas.</p>
+    <a href="#contacto" class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-blue-500 transition">Solicitar presupuesto</a>
   </div>
 </section>
 
@@ -124,55 +108,39 @@
 <section id="servicios" class="max-w-6xl mx-auto py-20 px-4 sm:px-6">
   <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Nuestros Servicios</h3>
   <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
-      <h4 class="text-xl font-semibold mb-3 text-blue-700">Reparación estructural</h4>
-      <p class="text-gray-600">Arreglo de grietas, fisuras y daños en estructuras de hormigón.</p>
-    </div>
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
-      <h4 class="text-xl font-semibold mb-3 text-blue-700">Refuerzo de cimentaciones</h4>
-      <p class="text-gray-600">Estabilización y refuerzo de bases y cimentaciones dañadas.</p>
-    </div>
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
-      <h4 class="text-xl font-semibold mb-3 text-blue-700">Tratamiento preventivo</h4>
-      <p class="text-gray-600">Protección contra humedad, corrosión y desgaste del hormigón.</p>
-    </div>
+    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card">Reparación estructural</div>
+    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card">Refuerzo de cimentaciones</div>
+    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card">Tratamiento preventivo</div>
+  </div>
+</section>
+
+<!-- Contadores -->
+<section class="py-20 bg-gray-100 text-center">
+  <div class="max-w-4xl mx-auto grid grid-cols-3 gap-6">
+    <div><span class="counter" data-target="20">0</span> años de experiencia</div>
+    <div><span class="counter" data-target="500">0</span> proyectos</div>
+    <div><span class="counter" data-target="300">0</span> clientes satisfechos</div>
   </div>
 </section>
 
 <!-- Slider testimonios -->
-<section id="testimonios" class="py-20 bg-gray-100 px-4 sm:px-6">
+<section id="testimonios" class="py-20 px-4 sm:px-6">
   <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Testimonios</h3>
   <div class="slider">
     <div class="slides">
-      <div class="slide text-center">
-        <p class="text-gray-700 mb-4">"Servicio excelente y rápido, quedaron como nuevos nuestros muros."</p>
-        <span class="font-bold text-gray-900">– Cliente 1</span>
-      </div>
-      <div class="slide text-center">
-        <p class="text-gray-700 mb-4">"Profesionales de confianza, muy recomendable."</p>
-        <span class="font-bold text-gray-900">– Cliente 2</span>
-      </div>
-      <div class="slide text-center">
-        <p class="text-gray-700 mb-4">"Reparación de calidad, cumplieron con todos los plazos."</p>
-        <span class="font-bold text-gray-900">– Cliente 3</span>
-      </div>
+      <div class="slide">"Servicio excelente." – Cliente 1</div>
+      <div class="slide">"Profesionales de confianza." – Cliente 2</div>
+      <div class="slide">"Cumplieron con los plazos." – Cliente 3</div>
     </div>
   </div>
-</section>
-
-<!-- Nosotros -->
-<section id="nosotros" class="py-20 px-4 sm:px-6 max-w-5xl mx-auto text-center">
-  <h3 class="text-3xl font-bold mb-6 text-gray-900">Sobre Nosotros</h3>
-  <p class="text-gray-700 leading-relaxed">En <strong>Otallinyo</strong> contamos con más de <strong>20 años de experiencia</strong> en la reparación y refuerzo de estructuras de hormigón. Nuestro compromiso es ofrecer soluciones profesionales que garanticen la seguridad, resistencia y durabilidad de cada proyecto.</p>
 </section>
 
 <!-- Contacto -->
 <section id="contacto" class="max-w-6xl mx-auto py-20 px-4 sm:px-6 text-center">
   <h3 class="text-3xl font-bold mb-12 text-gray-900">Contáctanos</h3>
-  <p class="text-gray-700">📍 Dirección: <span class="font-medium">[Aquí tu dirección]</span></p>
-  <p class="text-gray-700">📞 Teléfono: <a href="tel:+34123456789" class="text-blue-600 hover:underline">+34 123 456 789</a></p>
-  <p class="text-gray-700">✉️ Correo: <a href="mailto:info@otallinyo.com" class="text-blue-600 hover:underline">info@otallinyo.com</a></p>
-  <p class="text-gray-600">🕒 Horario: Lunes a Viernes, 08:00 - 18:00</p>
+  <p>📍 Dirección: [Aquí tu dirección]</p>
+  <p>📞 Teléfono: <a href="tel:+34123456789" class="text-blue-600 hover:underline">+34 123 456 789</a></p>
+  <p>✉️ Correo: <a href="mailto:info@otallinyo.com" class="text-blue-600 hover:underline">info@otallinyo.com</a></p>
 </section>
 
 <!-- Footer -->
@@ -181,16 +149,12 @@
 </footer>
 
 <!-- Botón flotante WhatsApp -->
-<a href="https://wa.me/34123456789" target="_blank" class="whatsapp-btn">
-  <i class="fab fa-whatsapp fa-lg"></i>
-</a>
+<a href="https://wa.me/34123456789" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp fa-lg"></i></a>
 
 <!-- Scripts -->
 <script>
-  // Hero animation
-  window.addEventListener('load', () => {
-    document.querySelector('.hero-content').classList.add('show');
-  });
+  // Hero animación
+  window.addEventListener('load', () => { document.querySelector('.hero-content').classList.add('show'); });
 
   // Parallax Hero
   window.addEventListener('scroll', () => {
@@ -200,15 +164,41 @@
 
   // Slider testimonios
   const slides = document.querySelector('.slides');
-  let index = 0;
-  const total = slides.children.length;
+  let index=0; const total=slides.children.length;
+  setInterval(()=>{ index=(index+1)%total; slides.style.transform=`translateX(-${index*100}%)`; },5000);
 
-  function showNextSlide() {
-    index = (index + 1) % total;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  }
-  setInterval(showNextSlide, 5000); // Cambia cada 5 segundos
+  // Contadores animados
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 200;
+      if(count < target) { counter.innerText = Math.ceil(count+increment); setTimeout(updateCount,20); } else { counter.innerText = target; }
+    };
+    updateCount();
+  });
+
+  // Dark mode toggle
+  const toggle = document.getElementById('darkToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('bg-gray-900');
+    document.body.classList.toggle('text-gray-50');
+    document.querySelector('header').classList.toggle('bg-gray-900');
+    document.querySelector('header').classList.toggle('bg-gray-50');
+  });
+
+  // Typing effect
+  const typingEl = document.getElementById('typing');
+  const words = ["Expertos en reparación de hormigón", "Calidad garantizada", "Soluciones duraderas"];
+  let wordIndex=0, charIndex=0;
+  const type = () => {
+    typingEl.innerText = words[wordIndex].substring(0,charIndex+1);
+    charIndex++;
+    if(charIndex === words[wordIndex].length){ setTimeout(()=>{ charIndex=0; wordIndex=(wordIndex+1)%words.length; type(); },2000); }
+    else setTimeout(type,100);
+  };
+  type();
 </script>
-
 </body>
 </html>
