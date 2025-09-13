@@ -11,34 +11,52 @@
   <style>
     /* Hero: fondo responsive centrado */
     .hero {
-      background-image: url('fondo.jpg'); /* tu fondo/logo */
+      background-image: url('fondo.jpg'); 
       background-repeat: no-repeat;
-      background-position: center center; /* centrado total */
-      background-size: contain; /* móvil: no se corta */
-      min-height: 60vh; /* altura mínima para móviles */
+      background-position: center center;
+      background-size: contain;
+      min-height: 60vh;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    @media (min-width: 640px) {
-      .hero {
-        min-height: 70vh; /* sm */
-      }
+    @media (min-width: 640px) { .hero { min-height: 70vh; } }
+    @media (min-width: 768px) { .hero { background-size: cover; min-height: 80vh; } }
+    @media (min-width: 1024px) { .hero { min-height: 100vh; } }
+
+    /* Animaciones Hero */
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+    .fade-slide.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    @media (min-width: 768px) {
-      .hero {
-        background-size: cover; /* tablet/PC: cubre todo */
-        min-height: 80vh;
-      }
+    /* Botón flotante WhatsApp */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      z-index: 100;
+      transition: transform 0.3s ease;
     }
+    .whatsapp-btn:hover { transform: scale(1.1); }
 
-    @media (min-width: 1024px) {
-      .hero {
-        min-height: 100vh; /* lg: pantalla completa */
-      }
-    }
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -46,17 +64,15 @@
 <!-- Header -->
 <header class="bg-gray-900 text-white shadow-md">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-6">
-    <!-- Logo + Nombre -->
     <div class="flex items-center space-x-3 mb-4 md:mb-0">
       <img src="logo.png" alt="Otallinyo Logo" class="h-10 w-10 object-contain">
       <h1 class="text-2xl font-bold tracking-wide">Otallinyo</h1>
     </div>
 
-    <!-- Navegación -->
     <nav class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 font-medium">
-      <a href="#servicios" class="hover:text-blue-400">Servicios</a>
-      <a href="#nosotros" class="hover:text-blue-400">Nosotros</a>
-      <a href="#contacto" class="hover:text-blue-400">Contacto</a>
+      <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
+      <a href="#nosotros" class="hover:text-blue-400 transition">Nosotros</a>
+      <a href="#contacto" class="hover:text-blue-400 transition">Contacto</a>
       <a href="/otallinyo/fotos" class="hover:text-blue-400 bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition">Fotos</a>
     </nav>
   </div>
@@ -64,12 +80,8 @@
 
 <!-- Hero -->
 <section class="relative hero">
-
-  <!-- Capa oscura -->
   <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-
-  <!-- Contenido -->
-  <div class="relative z-10 p-6 md:p-10 max-w-2xl text-center">
+  <div class="relative z-10 p-6 md:p-10 max-w-2xl text-center fade-slide">
     <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4">
       Expertos en reparación de hormigón
     </h2>
@@ -87,15 +99,15 @@
 <section id="servicios" class="max-w-6xl mx-auto py-20 px-4 sm:px-6">
   <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Nuestros Servicios</h3>
   <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200">
+    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 hover:scale-105 transition">
       <h4 class="text-xl font-semibold mb-3 text-blue-700">Reparación estructural</h4>
       <p class="text-gray-600">Arreglo de grietas, fisuras y daños en estructuras de hormigón.</p>
     </div>
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200">
+    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 hover:scale-105 transition">
       <h4 class="text-xl font-semibold mb-3 text-blue-700">Refuerzo de cimentaciones</h4>
       <p class="text-gray-600">Estabilización y refuerzo de bases y cimentaciones dañadas.</p>
     </div>
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200">
+    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 hover:scale-105 transition">
       <h4 class="text-xl font-semibold mb-3 text-blue-700">Tratamiento preventivo</h4>
       <p class="text-gray-600">Protección contra humedad, corrosión y desgaste del hormigón.</p>
     </div>
@@ -126,6 +138,17 @@
   <p>© 2025 Otallinyo | Reparación de Hormigón</p>
 </footer>
 
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/34123456789" target="_blank" class="whatsapp-btn">
+  <i class="fab fa-whatsapp fa-lg"></i>
+</a>
+
+<!-- Animación Hero -->
+<script>
+  window.addEventListener('load', () => {
+    document.querySelector('.fade-slide').classList.add('show');
+  });
+</script>
+
 </body>
 </html>
-
