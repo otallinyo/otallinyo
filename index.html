@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Otallinyo | Reparación de Hormigón</title>
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- SEO básico -->
+  <meta name="description" content="Otallinyo: Expertos en reparación y refuerzo de estructuras de hormigón. Garantizamos calidad, seguridad y soluciones duraderas.">
+  <meta name="keywords" content="reparación de hormigón, refuerzo de estructuras, cimentaciones, tratamiento preventivo, Otallinyo">
+  <meta name="author" content="Otallinyo">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
@@ -91,109 +97,111 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-<!-- Header -->
-<header class="bg-gray-900 text-white shadow-md">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-6">
-    <div class="flex items-center space-x-3 mb-4 md:mb-0">
-      <img src="logo.png" alt="Otallinyo Logo" class="h-10 w-10 object-contain">
-      <h1 class="text-2xl font-bold tracking-wide">Otallinyo</h1>
+  <!-- H1 invisible para SEO -->
+  <h1 class="sr-only">Otallinyo - Reparación de Hormigón</h1>
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white shadow-md">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-6">
+      <div class="flex items-center space-x-3 mb-4 md:mb-0">
+        <img src="logo.png" alt="Otallinyo Logo" class="h-10 w-10 object-contain">
+        <h1 class="text-2xl font-bold tracking-wide">Otallinyo</h1>
+      </div>
+
+      <nav class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 font-medium">
+        <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
+        <a href="#nosotros" class="hover:text-blue-400 transition">Nosotros</a>
+        <a href="#contacto" class="hover:text-blue-400 transition">Contacto</a>
+        <a href="/otallinyo/fotos" class="hover:text-blue-400 bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition">Fotos</a>
+      </nav>
     </div>
+  </header>
 
-    <nav class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 font-medium">
-      <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
-      <a href="#nosotros" class="hover:text-blue-400 transition">Nosotros</a>
-      <a href="#contacto" class="hover:text-blue-400 transition">Contacto</a>
-      <a href="/otallinyo/fotos" class="hover:text-blue-400 bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition">Fotos</a>
-    </nav>
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content p-6 md:p-10 max-w-2xl">
-    <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4">
-      Expertos en reparación de hormigón
-    </h2>
-    <p class="text-sm sm:text-base md:text-xl text-gray-200 mb-6">
-      Calidad, seguridad y soluciones duraderas.
-    </p>
-    <a href="#contacto" 
-       class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-blue-500 transition">
-      Solicitar presupuesto
-    </a>
-  </div>
-</section>
-
-<!-- Servicios -->
-<section id="servicios" class="max-w-6xl mx-auto py-20 px-4 sm:px-6">
-  <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Nuestros Servicios</h3>
-  <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
-      <h4 class="text-xl font-semibold mb-3 text-blue-700">Reparación estructural</h4>
-      <p class="text-gray-600">Arreglo de grietas, fisuras y daños en estructuras de hormigón.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content p-6 md:p-10 max-w-2xl">
+      <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4">
+        Expertos en reparación de hormigón
+      </h2>
+      <p class="text-sm sm:text-base md:text-xl text-gray-200 mb-6">
+        Calidad, seguridad y soluciones duraderas.
+      </p>
+      <a href="#contacto" 
+         class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-blue-500 transition">
+        Solicitar presupuesto
+      </a>
     </div>
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
-      <h4 class="text-xl font-semibold mb-3 text-blue-700">Refuerzo de cimentaciones</h4>
-      <p class="text-gray-600">Estabilización y refuerzo de bases y cimentaciones dañadas.</p>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="max-w-6xl mx-auto py-20 px-4 sm:px-6">
+    <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Nuestros Servicios</h3>
+    <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
+        <h4 class="text-xl font-semibold mb-3 text-blue-700">Reparación estructural</h4>
+        <p class="text-gray-600">Arreglo de grietas, fisuras y daños en estructuras de hormigón.</p>
+      </div>
+      <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
+        <h4 class="text-xl font-semibold mb-3 text-blue-700">Refuerzo de cimentaciones</h4>
+        <p class="text-gray-600">Estabilización y refuerzo de bases y cimentaciones dañadas.</p>
+      </div>
+      <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
+        <h4 class="text-xl font-semibold mb-3 text-blue-700">Tratamiento preventivo</h4>
+        <p class="text-gray-600">Protección contra humedad, corrosión y desgaste del hormigón.</p>
+      </div>
     </div>
-    <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-200 service-card transition">
-      <h4 class="text-xl font-semibold mb-3 text-blue-700">Tratamiento preventivo</h4>
-      <p class="text-gray-600">Protección contra humedad, corrosión y desgaste del hormigón.</p>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="bg-gray-100 py-20 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6 text-gray-900">Sobre Nosotros</h3>
+      <p class="text-gray-700 leading-relaxed">En <strong>Otallinyo</strong> contamos con más de <strong>20 años de experiencia</strong> en la reparación y refuerzo de estructuras de hormigón. Nuestro compromiso es ofrecer soluciones profesionales que garanticen la seguridad, resistencia y durabilidad de cada proyecto.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Nosotros -->
-<section id="nosotros" class="bg-gray-100 py-20 px-4 sm:px-6">
-  <div class="max-w-5xl mx-auto text-center">
-    <h3 class="text-3xl font-bold mb-6 text-gray-900">Sobre Nosotros</h3>
-    <p class="text-gray-700 leading-relaxed">En <strong>Otallinyo</strong> contamos con más de <strong>20 años de experiencia</strong> en la reparación y refuerzo de estructuras de hormigón. Nuestro compromiso es ofrecer soluciones profesionales que garanticen la seguridad, resistencia y durabilidad de cada proyecto.</p>
-  </div>
-</section>
+  <!-- Contacto -->
+  <section id="contacto" class="max-w-6xl mx-auto py-20 px-4 sm:px-6">
+    <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Contáctanos</h3>
+    <div class="max-w-3xl mx-auto space-y-6 text-center">
+      <p class="text-gray-700">📞 Teléfono: <a href="tel:+34666912951" class="text-blue-600 hover:underline">+34 666 91 29 51</a></p>
+      <p class="text-gray-700">✉️ Correo: <a href="mailto:info@otallinyo.com" class="text-blue-600 hover:underline">info@otallinyo.com</a></p>
+      <p class="text-gray-600">🕒 Horario de atención: Lunes a Viernes, 08:00 - 18:00</p>
+    </div>
+  </section>
 
-<!-- Contacto -->
-<!-- Contacto -->
-<section id="contacto" class="max-w-6xl mx-auto py-20 px-4 sm:px-6">
-  <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Contáctanos</h3>
-  <div class="max-w-3xl mx-auto space-y-6 text-center">
-    <p class="text-gray-700">📞 Teléfono: <a href="tel:+34666912951" class="text-blue-600 hover:underline">+34 666 91 29 51</a></p>
-    <p class="text-gray-700">✉️ Correo: <a href="mailto:info@otallinyo.com" class="text-blue-600 hover:underline">info@otallinyo.com</a></p>
-    <p class="text-gray-600">🕒 Horario de atención: Lunes a Viernes, 08:00 - 18:00</p>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-6 text-center">
+    <p>© 2025 Otallinyo | Reparación de Hormigón</p>
+  </footer>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-gray-400 py-6 text-center">
-  <p>© 2025 Otallinyo | Reparación de Hormigón</p>
-</footer>
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/34666912951" target="_blank" class="whatsapp-btn">
+    <i class="fab fa-whatsapp fa-lg"></i>
+  </a>
 
-<!-- Botón flotante WhatsApp -->
-<a href="https://wa.me/34666912951" target="_blank" class="whatsapp-btn">
-  <i class="fab fa-whatsapp fa-lg"></i>
-</a>
-
-<!-- Scripts -->
-<script>
-  // Animación Hero
-  window.addEventListener('load', () => {
-    document.querySelector('.hero-content').classList.add('show');
-  });
-
-  // Parallax Hero
-  window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    hero.style.backgroundPositionY = -(window.scrollY * 0.3) + 'px';
-  });
-
-  // Scroll suave completo para enlaces internos
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  <!-- Scripts -->
+  <script>
+    // Animación Hero
+    window.addEventListener('load', () => {
+      document.querySelector('.hero-content').classList.add('show');
     });
-  });
-</script>
+
+    // Parallax Hero
+    window.addEventListener('scroll', () => {
+      const hero = document.querySelector('.hero');
+      hero.style.backgroundPositionY = -(window.scrollY * 0.3) + 'px';
+    });
+
+    // Scroll suave completo para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
 
 </body>
 </html>
