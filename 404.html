@@ -3,15 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página no encontrada | Otallinyo</title>
+  <title>404 | Página no encontrada - Otallinyo</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1E3A8A, #2563EB);
+    }
+    .bounce {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 flex items-center justify-center min-h-screen">
-  <div class="text-center p-6 max-w-md">
-    <img src="favicon.png" alt="Otallinyo Logo" class="h-16 w-16 mx-auto mb-4 object-contain">
-    <h1 class="text-6xl font-bold text-gray-900 mb-4">404</h1>
-    <p class="text-xl mb-6">Oops… Página no encontrada.</p>
-    <a href="/otallinyo/" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-500 transition">Volver al inicio</a>
-  </div>
+<body class="text-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
+
+  <!-- Logo animado -->
+  <img src="favicon.png" alt="Otallinyo Logo" class="h-20 w-20 mb-6 bounce">
+
+  <!-- Mensaje principal -->
+  <h1 class="text-7xl font-extrabold mb-4">404</h1>
+  <h2 class="text-2xl md:text-3xl font-semibold mb-4 text-center">¡Vaya! Página no encontrada</h2>
+  <p class="text-center text-gray-200 mb-8 max-w-md">Parece que el enlace que seguiste está roto o la página ha sido movida. No te preocupes, te llevamos de vuelta al inicio.</p>
+
+  <!-- Botón principal -->
+  <a href="/otallinyo/" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition">
+    Volver al inicio
+  </a>
+
+  <!-- Footer opcional -->
+  <footer class="mt-12 text-gray-400 text-sm">© 2025 Otallinyo | Reparación de Hormigón</footer>
+
 </body>
+</html>
