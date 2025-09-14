@@ -9,33 +9,36 @@
   <style>
     body {
       background: linear-gradient(135deg, #1E3A8A, #2563EB);
+      animation: gradientBG 15s ease infinite;
     }
-    .bounce {
-      animation: bounce 2s infinite;
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
+    .bounce { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    .fade-in { opacity: 0; animation: fadeIn 1.2s forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
   </style>
 </head>
 <body class="text-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
 
   <!-- Logo animado -->
-  <img src="favicon.png" alt="Otallinyo Logo" class="h-20 w-20 mb-6 bounce">
+  <img src="otallinyo-transparent.png" alt="Otallinyo Logo" class="h-24 w-24 mx-auto mb-6 bounce fade-in">
 
   <!-- Mensaje principal -->
-  <h1 class="text-7xl font-extrabold mb-4">404</h1>
-  <h2 class="text-2xl md:text-3xl font-semibold mb-4 text-center">¡Vaya! Página no encontrada</h2>
-  <p class="text-center text-gray-200 mb-8 max-w-md">Parece que el enlace que seguiste está roto o la página ha sido movida. No te preocupes, te llevamos de vuelta al inicio.</p>
+  <h1 class="text-7xl font-extrabold mb-4 fade-in" style="animation-delay: 0.2s;">404</h1>
+  <h2 class="text-2xl md:text-3xl font-semibold mb-4 text-center fade-in" style="animation-delay: 0.4s;">¡Vaya! Página no encontrada</h2>
+  <p class="text-center text-gray-200 mb-8 max-w-md fade-in" style="animation-delay: 0.6s;">Parece que el enlace que seguiste está roto o la página ha sido movida. No te preocupes, te llevamos de vuelta al inicio.</p>
 
   <!-- Botón principal -->
-  <a href="/otallinyo/" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition">
+  <a href="/otallinyo/" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition transform hover:scale-105 fade-in" style="animation-delay: 0.8s;">
     Volver al inicio
   </a>
 
   <!-- Footer opcional -->
-  <footer class="mt-12 text-gray-400 text-sm">© 2025 Otallinyo | Reparación de Hormigón</footer>
+  <footer class="mt-12 text-gray-400 text-sm fade-in" style="animation-delay: 1s;">© 2025 Otallinyo | Reparación de Hormigón</footer>
 
 </body>
 </html>
