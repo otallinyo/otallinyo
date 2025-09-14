@@ -9,6 +9,7 @@
   <style>
     body {
       background: linear-gradient(135deg, #1E3A8A, #2563EB);
+      background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
     }
     @keyframes gradientBG {
@@ -24,8 +25,11 @@
 </head>
 <body class="text-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
 
-  <!-- Logo animado -->
-  <img src="otallinyo-transparent.png" alt="Otallinyo Logo" class="h-24 w-24 mx-auto mb-6 bounce fade-in">
+  <!-- Logo con fondo sutil para mejor visibilidad -->
+  <div class="relative mb-6 w-28 h-28">
+    <div class="absolute inset-0 bg-white rounded-full opacity-20"></div>
+    <img src="otallinyo-transparente.png" alt="Otallinyo Logo" class="h-28 w-28 relative z-10 bounce fade-in">
+  </div>
 
   <!-- Mensaje principal -->
   <h1 class="text-7xl font-extrabold mb-4 fade-in" style="animation-delay: 0.2s;">404</h1>
@@ -37,7 +41,7 @@
     Volver al inicio
   </a>
 
-  <!-- Footer opcional -->
+  <!-- Footer -->
   <footer class="mt-12 text-gray-400 text-sm fade-in" style="animation-delay: 1s;">© 2025 Otallinyo | Reparación de Hormigón</footer>
 
 </body>
