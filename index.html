@@ -64,6 +64,12 @@
       transform: translateY(0);
     }
 
+    /* Logo fade-in */
+    .logo {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
     /* Botón flotante WhatsApp */
     .whatsapp-btn {
       position: fixed;
@@ -104,7 +110,7 @@
   <header class="bg-gray-900 text-white shadow-md">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-6">
       <div class="flex items-center space-x-3 mb-4 md:mb-0">
-        <img src="logo.png" alt="Otallinyo Logo" class="h-10 w-10 object-contain">
+        <img src="logo.png" alt="Otallinyo Logo" class="h-10 w-10 object-contain logo">
         <h1 class="text-2xl font-bold tracking-wide">Otallinyo</h1>
       </div>
 
@@ -117,21 +123,21 @@
     </div>
   </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content p-6 sm:p-8 md:p-10 max-w-4xl mx-auto">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-relaxed">
-      Expertos en la conservación y restauración de hormigones arquitectónicos
-    </h2>
-    <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 mb-6 leading-relaxed">
-      Calidad, seguridad y soluciones duraderas.
-    </p>
-    <a href="#contacto" 
-       class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-blue-500 transition inline-block">
-      Solicitar presupuesto
-    </a>
-  </div>
-</section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content p-6 sm:p-8 md:p-10 max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-relaxed">
+        Expertos en la conservación y restauración de hormigones arquitectónicos
+      </h2>
+      <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 mb-6 leading-relaxed">
+        Calidad, seguridad y soluciones duraderas.
+      </p>
+      <a href="#contacto" 
+         class="bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-blue-500 transition inline-block">
+        Solicitar presupuesto
+      </a>
+    </div>
+  </section>
 
   <!-- Servicios -->
   <section id="servicios" class="max-w-6xl mx-auto py-20 px-4 sm:px-6">
@@ -182,9 +188,15 @@
 
   <!-- Scripts -->
   <script>
-    // Animación Hero
     window.addEventListener('load', () => {
-      document.querySelector('.hero-content').classList.add('show');
+      const logo = document.querySelector('.logo');
+      const heroContent = document.querySelector('.hero-content');
+
+      // Mostrar logo con fade-in
+      setTimeout(() => { logo.style.opacity = 1; }, 100);
+
+      // Mostrar heroContent después de un pequeño delay
+      setTimeout(() => { heroContent.classList.add('show'); }, 600);
     });
 
     // Parallax Hero
