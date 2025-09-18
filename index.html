@@ -30,7 +30,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* La imagen llena el ancho y se recorta solo arriba/abajo */
+      object-fit: cover; /* Rellena ancho, recorta solo arriba/abajo */
       z-index: 0;
       transition: transform 0.3s ease;
     }
@@ -57,11 +57,14 @@
       opacity: 0;
       transform: translateY(20px);
       transition: all 1s ease;
-      margin-top: 80px; /* Evita que choque con el logo */
     }
     .hero-content.show {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .hero-content h2 {
+      line-height: 1.2;
     }
 
     /* Logo fade-in */
@@ -102,7 +105,6 @@
       .hero-content p { font-size: 0.9rem; }
       nav a { font-size: 0.9rem; padding: 0.25rem 0; }
       section { padding-left: 1rem; padding-right: 1rem; }
-      .hero-content { margin-top: 60px; }
     }
   </style>
 </head>
@@ -173,3 +175,54 @@
     </div>
   </section>
 
+  <!-- Contacto -->
+  <section id="contacto" class="max-w-6xl mx-auto py-20 px-4 sm:px-6">
+    <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Contáctanos</h3>
+    <div class="max-w-3xl mx-auto space-y-6 text-center">
+      <p class="text-gray-700">📞 Teléfono: <a href="tel:+34666912951" class="text-blue-600 hover:underline">+34 666 91 29 51</a></p>
+      <p class="text-gray-700">✉️ Correo: <a href="mailto:info@otallinyo.com" class="text-blue-600 hover:underline">info@otallinyo.com</a></p>
+      <p class="text-gray-600">🕒 Horario de atención: Lunes a Viernes, 08:00 - 18:00</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-6 text-center">
+    <p>© 2025 Otallinyo | Reparación de Hormigón</p>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/34666912951" target="_blank" class="whatsapp-btn">
+    <i class="fab fa-whatsapp fa-lg"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    window.addEventListener('load', () => {
+      const logo = document.querySelector('.logo');
+      const heroContent = document.querySelector('.hero-content');
+
+      // Mostrar logo con fade-in
+      setTimeout(() => { logo.style.opacity = 1; }, 100);
+
+      // Mostrar heroContent después de un pequeño delay
+      setTimeout(() => { heroContent.classList.add('show'); }, 600);
+    });
+
+    // Parallax Hero
+    window.addEventListener('scroll', () => {
+      const heroImg = document.querySelector('.hero-img');
+      heroImg.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+    });
+
+    // Scroll suave completo para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+
+</body>
+</html>
