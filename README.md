@@ -1,5 +1,5 @@
 That web was uploaded by @seseintaynueveak
 ------------------------------------------
-https://otallinyo.es
+https://otallinyo.e
 
 © 2025 Otallinyo 
